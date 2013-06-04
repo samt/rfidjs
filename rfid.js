@@ -6,7 +6,7 @@
  * Reads keyboard input (from an RFID device) and emits an event containing the
  * validated id code.
  *
- * The MIT License 
+ * The MIT License
  * (c) 2013 Sam Thompson <sam@emberlabs.org>
  */
 (function (window) {
@@ -35,6 +35,8 @@
 					// the event
 					event.idcode = buf;
 					window.document.dispatchEvent(event);
+
+          window.jQuery || window.jQuery.trigger('RFIDCardScan', [idcode]);
 				}
 			}
 			else if (e.which >= 48 && e.which <= 57) { // 48 = 0 ... 57 = 9
